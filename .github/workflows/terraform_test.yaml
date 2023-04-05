@@ -1,13 +1,11 @@
 name: Terraform_test
 
-on: 
-  workflow_dispatch:
-  push:
-    inputs:
-      tfpath:
-        description: 'TF File Path'     
-        required: true
-        default: 'terraform/'
+on: [workflow_dispatch, push]
+  inputs:
+    tfpath:
+      description: 'TF File Path'     
+      required: true
+      default: 'terraform/'
 
 env:
   TF_VAR_bucket_name:  'dez-capstone-2023'
@@ -26,6 +24,9 @@ jobs:
         run: |
           echo `pwd`
           echo "tfpath From> ${{ inputs.tfpath }} <To"
+          echo "TFPATH From> $TFPATH <To"
+      env:
+          TFPATH: ${{ inputs.tfpath }}
 
       # - name: Checkout
       #   uses: actions/checkout@v3
