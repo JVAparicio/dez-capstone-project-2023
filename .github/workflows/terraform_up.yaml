@@ -7,10 +7,7 @@ on:
         description: 'TF File Path'     
         required: true
         default: 'terraform/'
-      terrafrom_destroy:
-        description: 'Destroy terraform'     
-        required: true
-        default: false
+
 env:
   TF_VAR_credentials_file: ${{ secrets.GCP_SA_KEY }}
   
