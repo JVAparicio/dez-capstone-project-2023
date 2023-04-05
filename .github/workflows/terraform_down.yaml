@@ -1,0 +1,23 @@
+name: Terraform apply
+
+on: 
+  workflow_dispatch:
+    inputs:
+      tfpath:
+        description: 'TF File Path'     
+        required: true
+        default: 'terraform/'
+
+env:
+  TF_VAR_credentials_file: ${{ secrets.GCP_SA_KEY }}
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Terraform destroy
+        run:
+          terraform destroy --auto-approve --var="credentials_file=$TF_VAR_credentials_file"
+        working-directory: ${{ github.event.inputs.tfpath }}
