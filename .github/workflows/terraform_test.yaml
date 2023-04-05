@@ -1,12 +1,11 @@
 name: Terraform_test
 
-on:
-  [workflow_dispatch, push]
-    inputs:
-      tfpath:
-        description: 'TF File Path'     
-        required: false
-        default: 'terraform/'
+on: [workflow_dispatch, push]
+  inputs:
+    tfpath:
+      description: 'TF File Path'     
+      required: false
+      default: 'terraform/'
   # push:
   #   inputs:
   #     tfpath:
