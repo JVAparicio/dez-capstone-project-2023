@@ -1,0 +1,44 @@
+name: Terraform apply
+
+on: 
+  workflow_dispatch:
+    inputs:
+      tfpath:
+        description: 'TF File Path'     
+        required: true
+        default: 'terraform/'
+
+env:
+  # TF_VAR_bucket_name:  'dez-capstone-2023'
+  # TF_VAR_project_id: 'dez-capstone-2023' 
+  # TF_VAR_region: 'us-central1'
+  # TF_VAR_zone: 'us-central1-c'
+  # TF_VAR_credentials: ${{ secrets.GCP_SA_KEY }}
+  TF_VAR_credentials_file: ${{ secrets.GCP_SA_KEY }}
+  
+
+jobs:
+
+  terraform:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Terraform init
+        run: |
+          echo "** Running Terraform Init**"
+          terraform init
+      - name: Terraform validate
+        run: |
+          echo "** Running Terraform Validate**"
+          terraform validate
+      - name: Terraform plan
+        run: |
+          echo "** Running Terraform Plan**"
+          terraform plan --var="credentials_file=$TF_VAR_credentials_file"
+      - name: Terraform apply
+        run: |
+          echo "** Running Terraform Plan**"
+          terraform apply  --auto-approve --var="credentials_file=$TF_VAR_credentials_file"
+        working-directory: ${{ github.event.inputs.tfpath }}
