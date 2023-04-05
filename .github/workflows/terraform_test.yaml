@@ -54,7 +54,10 @@ jobs:
 
       - name: Terraform init, plan and apply
         run: |
+          echo 'current work dir content_before>>>>'
+          ls
           cd ${{ github.event.inputs.tfpath }}
+          echo 'current work dir content_after>>>>'
           ls
           echo "** Running Terraform Init**"
           terraform init
