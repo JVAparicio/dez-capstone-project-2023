@@ -23,19 +23,6 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-
-      - name: Terraform init, plan and apply
-        shell: sh
-        run: |
-          echo `pwd`
-          echo "tfpath From> ${{ github.event.inputs.tfpath }} <To"
-          echo "tfpath2 From> ${{ inputs.tfpath }} <To"
-          echo "TFPATH From> $TFPATH <To"
-          echo "TFPATH2 From> $TFPATH2 <To"
-        env:
-            TFPATH: ${{ github.event.inputs.tfpath }}
-            TFPATH2: ${{ inputs.tfpath }}
-
       - name: Checkout
         uses: actions/checkout@v3
 
@@ -55,14 +42,14 @@ jobs:
           # cd ${{ github.event.inputs.tfpath }}
           # echo 'current work dir content_after>>>>'
           # ls
-      #     echo "** Running Terraform Init**"
-      #     terraform init
+          echo "** Running Terraform Init**"
+          terraform init
 
-      #     echo "** Running Terraform Validate**"
-      #     terraform validate
+          echo "** Running Terraform Validate**"
+          terraform validate
 
-      #     echo "** Running Terraform Plan**"
-      #     terraform plan
+          echo "** Running Terraform Plan**"
+          terraform plan
         working-directory: ${{ github.event.inputs.tfpath }}
 
       # - name: 'Storing SA Key to json file'
