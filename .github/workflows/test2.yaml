@@ -2,7 +2,8 @@ name: TEST2
 
 
 on: 
-  push:
+  # push:
+  workflow_dispatch:
     inputs:
       logLevel:
         description: 'Log level'     
