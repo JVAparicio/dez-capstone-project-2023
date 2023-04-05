@@ -52,9 +52,9 @@ jobs:
         run: |
           echo 'current work dir content_before>>>>'
           ls
-          cd ${{ github.event.inputs.tfpath }}
-          echo 'current work dir content_after>>>>'
-          ls
+          # cd ${{ github.event.inputs.tfpath }}
+          # echo 'current work dir content_after>>>>'
+          # ls
       #     echo "** Running Terraform Init**"
       #     terraform init
 
@@ -63,7 +63,7 @@ jobs:
 
       #     echo "** Running Terraform Plan**"
       #     terraform plan
-      #   working-directory: ${{ github.event.inputs.tfpath }}
+        working-directory: ${{ github.event.inputs.tfpath }}
 
       # - name: 'Storing SA Key to json file'
       #   id: sa-config
