@@ -20,5 +20,5 @@ jobs:
         echo "Tags: ${{ github.event.inputs.tags }}" 
         echo "Log level: ${{ github.on.push.inputs.logLevel }}"
         echo "Tags: ${{ github.on.push.inputs.tags }}" 
-        echo "Log level: ${{ on.push.inputs.logLevel }}"
-        echo "Tags: ${{ on.push.inputs.tags }}" 
+        echo "Log level: ${{ inputs.logLevel }}"
+        echo "Tags: ${{ inputs.tags }}" 
