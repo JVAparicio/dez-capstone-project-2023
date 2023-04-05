@@ -33,8 +33,8 @@ jobs:
           echo `pwd`
           echo "tfpath From> ${{ inputs.tfpath }} <To"
           echo "TFPATH From> $TFPATH <To"
-      env:
-          TFPATH: ${{ inputs.tfpath }}
+        env:
+            TFPATH: ${{ inputs.tfpath }}
 
       # - name: Checkout
       #   uses: actions/checkout@v3
