@@ -5,13 +5,7 @@ on:
     inputs:
       tfpath:
         description: 'TF File Path'     
-        required: false
-        default: 'terraform/'
-  push:
-    inputs:
-      tfpath:
-        description: 'TF File Path'     
-        required: false
+        required: true
         default: 'terraform/'
 
 env:
