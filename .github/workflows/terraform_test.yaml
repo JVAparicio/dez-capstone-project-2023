@@ -3,11 +3,11 @@ name: Terraform_test
 on:
   # workflow_dispatch:
   push:
-  inputs:
-    tfpath:
-      description: 'TF File Path'     
-      required: true
-      default: 'terraform/'
+    inputs:
+      tfpath:
+        description: 'TF File Path'     
+        required: true
+        default: 'terraform/'
 
 env:
   TF_VAR_bucket_name:  'dez-capstone-2023'
