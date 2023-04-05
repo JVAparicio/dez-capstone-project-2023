@@ -31,10 +31,10 @@ jobs:
       - name: Terraform init, plan and apply
         run: |
           echo `pwd`
-          echo "tfpath From> ${{ inputs.tfpath }} <To"
+          echo "tfpath From> ${{ github.event.inputs.tfpath }} <To"
           echo "TFPATH From> $TFPATH <To"
         env:
-            TFPATH: ${{ inputs.tfpath }}
+            TFPATH: ${{ github.event.inputs.tfpath }}
 
       # - name: Checkout
       #   uses: actions/checkout@v3
