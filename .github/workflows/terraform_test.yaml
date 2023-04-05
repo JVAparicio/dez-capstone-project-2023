@@ -1,0 +1,44 @@
+name: Terraform
+
+on: workflow_dispatch
+
+
+env:
+  TF_VAR_bucket_name:  'dez-capstone-2023'
+  TF_VAR_project_id: 'dez-capstone-2023' 
+  TF_VAR_region: 'us-central1'
+  TF_VAR_zone: 'us-central1-c'
+
+jobs:
+
+  terraform:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: 'Authenticate to Google Cloud'
+        id: auth
+        uses: google-github-actions/auth@v0
+        with:
+          credentials_json: ${{secrets.GCP_SA_KEY}}
+
+      - name: 'Storing SA Key to json file'
+        id: sa-config
+        run: |
+          echo ${{ secrets.GCP_SA_KEY }} | base64 -d > credentials.json
+        shell: bash
+
+      - name: Terraform init, plan and apply
+      run: |
+        echo `pwd`
+        echo "tfpath ${{ github.event.inputs.tfpath }}"
+        echo "** Running Terraform Init**"
+        terraform init
+
+        echo "** Running Terraform Validate**"
+        terraform validate
+
+        echo "** Running Terraform Plan**"
+        terraform plan
