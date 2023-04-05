@@ -17,6 +17,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Terraform init
+        run:
+          terraform init
+        working-directory: ${{ github.event.inputs.tfpath }}
       - name: Terraform destroy
         run:
           terraform destroy --auto-approve --var="credentials_file=$TF_VAR_credentials_file"
