@@ -49,7 +49,7 @@ jobs:
           terraform validate
 
           echo "** Running Terraform Plan**"
-          terraform plan
+          terraform plan --var="credentials_file=$TF_VAR_credentials_file"
         working-directory: ${{ github.event.inputs.tfpath }}
 
       # - name: 'Storing SA Key to json file'

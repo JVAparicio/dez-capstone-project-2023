@@ -3,6 +3,7 @@ variable "project" {
 }
 
 variable "credentials_file" {
+  default = file(var.credentials_file)
 }
 
 variable "region" {
