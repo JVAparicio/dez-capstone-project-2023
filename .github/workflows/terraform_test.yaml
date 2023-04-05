@@ -54,8 +54,8 @@ jobs:
 
       - name: Terraform init, plan and apply
         run: |
-          echo `pwd`
           cd ${{ github.event.inputs.tfpath }}
+          ls
           echo "** Running Terraform Init**"
           terraform init
 
