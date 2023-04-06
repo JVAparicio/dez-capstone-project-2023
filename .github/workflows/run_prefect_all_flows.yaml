@@ -1,4 +1,4 @@
-name: Run a flow
+name: Run all Prefect flows
 on:
   workflow_dispatch:
  
