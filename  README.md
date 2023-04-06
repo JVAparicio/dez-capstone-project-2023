@@ -1,5 +1,7 @@
 # [Capstone project for Data Engineering Zoomcamp 2023]('https://github.com/DataTalksClub/data-engineering-zoomcamp')
 
+[![Run all Prefect flows](https://github.com/biomlds/dez-capstone-project-2023/actions/workflows/run_prefect_all_flows.yaml/badge.svg)](https://github.com/biomlds/dez-capstone-project-2023/actions/workflows/run_prefect_all_flows.yaml)
+[![Deploy GCP infrastructure](https://github.com/biomlds/dez-capstone-project-2023/actions/workflows/run_terraform.yaml/badge.svg)](https://github.com/biomlds/dez-capstone-project-2023/actions/workflows/run_terraform.yaml)
 
 ## Objective
 The project makes use of the following technologies and create an automated and reproducible dashboard.
