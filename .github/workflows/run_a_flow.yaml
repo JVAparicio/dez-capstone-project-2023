@@ -28,6 +28,12 @@ jobs:
         run: |
           # pip install -U prefect==${{ github.event.inputs.prefect-version }}
           pip install -r requirements.txt
+    
+      - name: Authenticate to Google Cloud
+        id: auth
+        uses: google-github-actions/auth@v0
+        with:
+          credentials_json: ${{secrets.GCP_SA_KEY}}
 
       - name: Prefect Cloud login
         run: |
@@ -35,5 +41,5 @@ jobs:
           prefect cloud workspace set --workspace "${{secrets.PREFECT_WORKSPACE}}"
       - name: Run the flow
         run: |
-          export PYTHONPATH="${PYTHONPATH}:/home/runner/work/prefect-getting-started/prefect-getting-started/"
+          # export PYTHONPATH="${PYTHONPATH}:/home/runner/work/prefect-getting-started/prefect-getting-started/"
           python flows/${{ github.event.inputs.flow }}
