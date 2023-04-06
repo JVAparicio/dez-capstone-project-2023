@@ -80,4 +80,7 @@ Here is the scheme of the final table:
     &ds.ds0.datasetId=covid
     &ds.ds0.tableId=cluster_table
     ```
-    
+
+## To do
+- lint and format code
+- replace Looker with Streamlit dashboard
