@@ -23,6 +23,6 @@ def populate_bq(gcp_credentials=credentials_block, bucket_name=bucket_name,
     return result
 
 if __name__ == "__main__":
-    # bigquery_query_flow(year=2021, ncol=21)
-    # bigquery_query_flow(year=2022, ncol=21)
+    populate_bq(year=2021, ncol=21)
+    populate_bq(year=2022, ncol=21)
     populate_bq(year=2022, ncol=18)

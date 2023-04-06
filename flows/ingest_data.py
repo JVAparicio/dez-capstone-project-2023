@@ -52,8 +52,8 @@ def GCSUpload(day, gcs_bucket=bucket_block):
 def ingest_data() -> None:
     """The main ETL function"""
 
-    # observation_days = pd.date_range(date(2021, 1, 1), date(2023, 1, 1)-timedelta(days=1),freq='d')
-    observation_days = pd.date_range(date(2022, 12, 30), date(2023, 1, 1)-timedelta(days=1),freq='d')
+    observation_days = pd.date_range(date(2021, 1, 1), date(2023, 1, 1)-timedelta(days=1),freq='d')
+    # observation_days = pd.date_range(date(2022, 12, 30), date(2023, 1, 1)-timedelta(days=1),freq='d')
     list_of_observation_days = [i.strftime("%m-%d-%Y") for i in observation_days]
     for ix, day in enumerate(list_of_observation_days):
         GCSUpload.submit(day)
