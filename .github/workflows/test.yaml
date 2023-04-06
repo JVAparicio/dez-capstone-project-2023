@@ -1,0 +1,28 @@
+ame: Terraform apply
+
+on: 
+  workflow_dispatch:
+    inputs:
+      tfpath:
+        description: 'TF File Path'     
+        required: true
+        default: 'terraform/'
+
+env:
+  TF_VAR_credentials_file: ${{ secrets.GCP_SA_KEY }}
+  
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Authenticate to Google Cloud'
+        id: auth
+        uses: google-github-actions/auth@v0
+        with:
+          credentials_json: ${{secrets.GCP_SA_KEY}}
+
+      - name: Test GCP env
+        run:
+          echo GOOGLE_APPLICATION_CREDENTIALS $GOOGLE_APPLICATION_CREDENTIALS
+
+
