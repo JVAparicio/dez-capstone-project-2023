@@ -18,7 +18,6 @@ credentials_block = GcpCredentials(
 )
 credentials_block.save(credentials_block_name, overwrite=True)
 
-credentials_block.load('default')
 
 bucket_block = GcsBucket(
     gcp_credentials=GcpCredentials.load(credentials_block_name),
