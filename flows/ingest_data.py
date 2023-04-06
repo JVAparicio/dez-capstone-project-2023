@@ -13,7 +13,7 @@ from prefect_dbt import DbtCoreOperation
 # from prefect_gcp.cloud_storage import GCSUpload
 import urllib3
 import certifi
-from make_gcp_blocks import *
+from make_blocks import *
 
 
 

@@ -1,7 +1,7 @@
 from prefect import flow
 from prefect_gcp import GcpCredentials
 from prefect_gcp.bigquery import bigquery_query
-from make_gcp_blocks import *
+from make_blocks import *
 
 @flow
 def populate_bq(gcp_credentials=credentials_block, bucket_name=bucket_name, 

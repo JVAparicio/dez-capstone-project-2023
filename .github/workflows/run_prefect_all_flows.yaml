@@ -1,0 +1,42 @@
+name: Run a flow
+on:
+  workflow_dispatch:
+ 
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.9
+
+      - name: Python dependencies
+        run: |
+          pip install -r requirements.txt
+    
+      - name: Authenticate to Google Cloud
+        id: auth
+        uses: google-github-actions/auth@v0
+        with:
+          credentials_json: ${{secrets.GCP_SA_KEY}}
+
+      - name: Prefect Cloud login
+        run: |
+          prefect config set PREFECT_API_KEY=${{secrets.PREFECT_API_KEY}} 
+          prefect cloud workspace set --workspace "${{secrets.PREFECT_WORKSPACE}}"
+      - name: Create prefect blocks
+        run: |
+          python flows/make_blocks.py
+      - name: Run the ingest_data flow
+        run: |
+          python flows/ingest_data.py
+      - name: Run the populate_bq flow
+        run: |
+          python flows/populate_bq.py
+      - name: Run the model_data flow
+        run: |
+          python flows/model_data.py
