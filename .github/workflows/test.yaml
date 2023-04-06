@@ -1,12 +1,8 @@
-name: Test GOOGLE_APPLICATION_CREDENTIALS
+name: Prefect flows
 
 on: 
   workflow_dispatch:
-    inputs:
-      tfpath:
-        description: 'TF File Path'     
-        required: true
-        default: 'terraform/'
+
 
 env:
   TF_VAR_credentials_file: ${{ secrets.GCP_SA_KEY }}

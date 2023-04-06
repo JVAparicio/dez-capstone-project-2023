@@ -1,0 +1,67 @@
+
+version: 2
+
+sources:
+    - name: staging
+      database: hip-watch-375918
+      schema: covid
+
+      tables:
+        - name: data-2021-21
+        - name: data-2022-21
+        - name: data-2022-18
+
+models:
+  - name: tidy_data
+    description: "Cleaned subset"
+  - name: year2021
+    description: "Cleaned subset"
+    columns:
+      - name: State
+        description: "The name of the State within the USA"
+        tests:
+          - not_null
+      - name: Confirmed
+        description: "Aggregated case count for the state"
+        tests:
+          - not_null
+      - name: Deaths
+        description: "Aggregated death toll for the state"
+        tests:
+          - not_null
+      - name: Recovered
+        description: "Aggregated Recovered case count for the state"
+        tests:
+          # - not_null
+      - name: Active
+        description: "Aggregated confirmed cases that have not been resolved (Active cases = total cases - total recovered - total deaths)"
+        tests:
+        #   - not_null
+      - name: Incident_Rate
+        description: "Cases per 100,000 persons"
+        tests:
+          # - not_null
+      # - name: Total_Test_Results
+      #   description: "Total number of people who have been tested"
+      #   tests:
+      #     - not_null
+      - name: Case_Fatality_Ratio
+        description: "Number recorded deaths * 100/ Number confirmed cases"
+        tests:
+          - not_null
+      - name: Testing_Rate
+        description: "Total test results per 100,000 persons. The 'total test results' are equal to 'Total test results (Positive + Negative)'"
+        tests:
+          # - not_null
+      - name: Date
+        description: "Date of report"
+        tests:
+          - not_null
+      - name: Month
+        description: "Month of report"
+        tests:
+          - not_null
+      - name: Year
+        description: "Year of report"
+        tests:
+          - not_null

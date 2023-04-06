@@ -1,0 +1,14 @@
+pandas==1.5.2
+prefect==2.8.6
+bokeh>=2.4.2,<3
+# prefect-sqlalchemy==0.2.2
+prefect-gcp[cloud_storage]==0.2.4
+prefect-dbt[bigquery]
+prefect-dbt[cli]
+prefect-dask
+protobuf==4.21.11
+pyarrow==10.0.1
+pandas-gbq==0.18.1
+# psycopg2-binary==2.9.5
+# sqlalchemy==1.4.46
+dbt-bigquery

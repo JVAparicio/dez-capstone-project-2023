@@ -20,3 +20,6 @@ variable "bucket_name" {
 variable "bucket_location" {
   default = "US"
 }
+
+variable "bq_dataset_name" {
+}
