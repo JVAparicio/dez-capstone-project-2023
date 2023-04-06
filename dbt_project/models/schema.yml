@@ -3,7 +3,7 @@ version: 2
 
 sources:
     - name: staging
-      database: hip-watch-375918
+      database: dez-capstone-2023
       schema: covid
 
       tables:
