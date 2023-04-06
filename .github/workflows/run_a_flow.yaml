@@ -26,7 +26,8 @@ jobs:
 
       - name: Python dependencies
         run: |
-          pip install -U prefect==${{ github.event.inputs.prefect-version }}
+          # pip install -U prefect==${{ github.event.inputs.prefect-version }}
+          pip install -r requirements.txt
 
       - name: Prefect Cloud login
         run: |
