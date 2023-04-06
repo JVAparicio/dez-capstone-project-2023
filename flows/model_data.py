@@ -34,7 +34,7 @@ def dbt() -> None:
 def trigger_dbt_flow():
     # dbt_cli_profile = DbtCliProfile.load("dbt-project-prefect")
     with DbtCoreOperation(
-        commands=["dbt debug"],
+        commands=["dbt debug", "dbt run", "dbt test"],
         project_dir="dbt_project",
         dbt_cli_profile=dbt_cli_profile,
         overwrite_profiles=True
