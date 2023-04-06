@@ -1,4 +1,4 @@
-name: Run flow
+name: Run a flow
 on:
   workflow_dispatch:
     inputs:
@@ -11,7 +11,7 @@ on:
         description: Flow to run
         required: true
         type: choice
-        options: ['ingest_data.py', 'model_data.py', 'ingest_data.py']
+        options: ['ingest_data.py', 'model_data.py', 'ingest_data.py','make_blocks.py']
 jobs:
   run:
     runs-on: ubuntu-latest
