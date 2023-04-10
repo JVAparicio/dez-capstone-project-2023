@@ -21,8 +21,10 @@ The project makes use of the following technologies and create an automated and 
 
 Initial dataset was gathered from [COVID-19 Data Repository by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data) and stored in GCP Bucket. Then, data was ingested into BigQuery tables and transformed with DBT for further visualization in Looker Studio.
 
-Here is the scheme of the final table:
+Two complete years of observation (year2021, year2022) were transformed into clustered table.
+![Dbt dag](dbt-dag.png)
 
+Here is the scheme of the table:
 ```
   columns:
       - name: State
@@ -71,17 +73,17 @@ Here is the scheme of the final table:
 
 5. Upon successful completion of infrastructure provisioning and data preparation the dashboard is accessible by this [link](https://lookerstudio.google.com/reporting/05b40761-9ab2-47f8-ae45-166f806db970/page/uWtLD/preview/create?c.reportId=6fef370e-0b3b-4bca-8e12-b0c01c57ad47&r.reportName=MyNewReportCOVID&ds.ds0.connector=bigQuery&ds.ds0.datasourceName=cluster_table&ds.ds0.projectId=dez-capstone-2023&ds.ds0.type=TABLE&ds.ds0.datasetId=covid&ds.ds0.tableId=cluster_table):
 
-    ```
-    https://lookerstudio.google.com/reporting/05b40761-9ab2-47f8-ae45-166f806db970/page/uWtLD/preview/create?
-    c.reportId=6fef370e-0b3b-4bca-8e12-b0c01c57ad47
-    &r.reportName=MyNewReportCOVID
-    &ds.ds0.connector=bigQuery
-    &ds.ds0.datasourceName=cluster_table
-    &ds.ds0.projectId=dez-capstone-2023
-    &ds.ds0.type=TABLE
-    &ds.ds0.datasetId=covid
-    &ds.ds0.tableId=cluster_table
-    ```
+```
+https://lookerstudio.google.com/reporting/05b40761-9ab2-47f8-ae45-166f806db970/page/uWtLD/preview/create?
+c.reportId=6fef370e-0b3b-4bca-8e12-b0c01c57ad47
+&r.reportName=MyNewReportCOVID
+&ds.ds0.connector=bigQuery
+&ds.ds0.datasourceName=cluster_table
+&ds.ds0.projectId=dez-capstone-2023
+&ds.ds0.type=TABLE
+&ds.ds0.datasetId=covid
+&ds.ds0.tableId=cluster_table
+```
 
 ## To do
 - lint and format code
