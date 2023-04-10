@@ -71,19 +71,9 @@ Here is the scheme of the table:
       - `populate_bq.py` import raw data into BigQuery tables
       - `model_data.py` process the tables via DBT
 
-5. Upon successful completion of infrastructure provisioning and data preparation the dashboard is accessible by this [link](https://lookerstudio.google.com/reporting/05b40761-9ab2-47f8-ae45-166f806db970/page/uWtLD/preview/create?c.reportId=6fef370e-0b3b-4bca-8e12-b0c01c57ad47&r.reportName=MyNewReportCOVID&ds.ds0.connector=bigQuery&ds.ds0.datasourceName=cluster_table&ds.ds0.projectId=dez-capstone-2023&ds.ds0.type=TABLE&ds.ds0.datasetId=covid&ds.ds0.tableId=cluster_table):
+5. Upon successful completion of infrastructure provisioning and data preparation the dashboard is accessible by this [link](https://lookerstudio.google.com/reporting/c4188e03-0cca-47f7-b5bb-4957796ed46a):
+    - https://lookerstudio.google.com/reporting/c4188e03-0cca-47f7-b5bb-4957796ed46a
 
-```
-https://lookerstudio.google.com/reporting/05b40761-9ab2-47f8-ae45-166f806db970/page/uWtLD/preview/create?
-c.reportId=6fef370e-0b3b-4bca-8e12-b0c01c57ad47
-&r.reportName=MyNewReportCOVID
-&ds.ds0.connector=bigQuery
-&ds.ds0.datasourceName=cluster_table
-&ds.ds0.projectId=dez-capstone-2023
-&ds.ds0.type=TABLE
-&ds.ds0.datasetId=covid
-&ds.ds0.tableId=cluster_table
-```
 
 ## To do
 - lint and format code
