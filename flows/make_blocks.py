@@ -3,7 +3,7 @@ from prefect_gcp import GcpCredentials
 from prefect_gcp.cloud_storage import GcsBucket
 from prefect_dbt.cli import BigQueryTargetConfigs, DbtCliProfile
 
-bucket_name = "dez-capstone-2023"
+bucket_name = "dez-capstone-2023-04-10"
 gcp_config_file = environ['GOOGLE_APPLICATION_CREDENTIALS']
 credentials_block_name = "dez-capstone-2023-creds"
 bq_dataset_name = "covid"
